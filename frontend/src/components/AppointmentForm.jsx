@@ -5,7 +5,8 @@ import {
   FaCircleCheck,
   FaSpinner,
 } from "react-icons/fa6";
- const API_URL =
+
+const API_URL =
   import.meta.env.VITE_API_URL || "http://localhost:5000/api";
 
 const initialFormData = {
@@ -46,11 +47,11 @@ function AppointmentForm() {
     setErrorMessage("");
 
     try {
-     
-await axios.post(
-  `${API_URL}/appointments`,
-  formData
-);
+      const response = await axios.post(
+        `${API_URL}/appointments`,
+        formData
+      );
+
       setSuccessMessage(
         response.data.message ||
           "Your appointment request was submitted successfully."
